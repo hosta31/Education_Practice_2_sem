@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <list>
 #include <string>
 #include <fstream>
@@ -33,13 +33,13 @@ vector<string> linesToWords(list<string>& lines) // перевод строк в
             bufferString = "";
         }
     }
-    return result;
+    return result; // возвращает результирающий вектор слов
 }
 
-const double FACTOR = 1.2473309;
+const double FACTOR = 1.2473309; // оптимальное значение фактора уменьшения
 
 void combSort(vector<string> &words) // сортировка расческой
-{
+{                                    // в функцию передается указатель на реальный вектор, поэтому ничего не возвращает
     int N = words.size(); 
     int i=N-1;
     string buffer;
@@ -64,12 +64,12 @@ int main()
     list<string> lines;
     string filePath;
     cin >> filePath;
-    ifstream fileIn(filePath + "/fileIn.txt");//C:/Users/79818/Desktop/UchPr
+    ifstream fileIn(filePath + "/fileIn.txt");
     ofstream fileOutAnalysis(filePath + "/analysis.txt");
     fileOutAnalysis << "Введенный текст: \n";
     cout << "Введенный текст: \n";
     string bufferLine;
-    while (!fileIn.eof())
+    while (!fileIn.eof()) // считывание из файла
     {
         getline(fileIn, bufferLine);
         lines.push_back(bufferLine);
@@ -80,11 +80,10 @@ int main()
 
     vector<string> words = linesToWords(lines); 
 
-    double start_time = clock();
-    combSort(words);
-    double end_time = clock();
+    double start_time = clock(); // начало отсчета
+    combSort(words); // сортировка
+    double end_time = clock(); // конец отсчета
     double search_time = ((double)(end_time - start_time)) / (double)CLOCKS_PER_SEC;
-    //for (int i = 0; i < words.size(); i++) cout << words[i].length() << ' ';
 
     fileOutAnalysis << "\n\nВариант 14: латиница, по кол-ву символов в слове, по убыванию, учитывать числа, сортировка Расческой\nКоличество слов: " << words.size();
     cout << "\n\nВариант 14: латиница, по кол-ву символов в слове, по убыванию, учитывать числа, сортировка Расческой\nКоличество слов: " << words.size();
@@ -93,7 +92,7 @@ int main()
     ofstream fileOutResult(filePath + "/result.txt");
 
     int j = 0, counter;
-    for (int i = words[0].length(); i > 0; i--)
+    for (int i = words[0].length(); i > 0; i--) // запись данных в файлы
     {
         counter = 0;
         fileOutAnalysis << i << " - ";
