@@ -40,14 +40,13 @@ const double FACTOR = 1.2473309; // оптимальное значение фа
 
 void combSort(vector<string> &words) // сортировка расческой
 {                                    // в функцию передается указатель на реальный вектор, поэтому ничего не возвращает
-    int N = words.size(); 
-    int i=N-1;
+    int i = words.size() - 1;
     string buffer;
     while (i > 0)
     {
-        for (int j = 0; j < N - i; j++)
+        for (int j = 0; j < words.size() - i; j++)
         {
-            if (words[j].size() < words[j + i].size())
+            if (words[j].length() < words[j + i].length())
             {
                 buffer = words[j];
                 words[j] = words[j + i];
