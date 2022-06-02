@@ -16,3 +16,8 @@ Was used a function clock() which returns the processor time consumed by the pro
 
 ## Installation
 To install the project you need to install any program for C++. Then just run it and enter the path to the required file.
+
+![image](https://user-images.githubusercontent.com/106712970/171665652-29ae3be7-46ce-4960-b3bc-9e04961553e9.png)
+There is the graphic of dependency of the time and amount of words.
+
+So the complexity of the algorithm is about O(nlogn).
